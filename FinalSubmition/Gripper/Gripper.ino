@@ -103,7 +103,7 @@ volatile unsigned long previousMillis_grip = 0;         //grip check time
 volatile int interval_grip = 30;                        //grip check interval
 
 /////////////////////////////// DEBUG ///////////////////////////////
-int DEBUG = 1;
+int DEBUG = 0;
 
 /////////////////////////////// Código Principal ///////////////////////////////
 void setup() {
@@ -228,10 +228,13 @@ void loop() {
   
   motor_loop();
 
-
-  Serial.println("");
-  Serial.println("------------------------------ END OF LOOP ------------------------");
-  Serial.println("");
+  if(DEBUG) 
+  {
+    Serial.println("");
+    Serial.println("------------------------------ END OF LOOP ------------------------");
+    Serial.println("");
+  }
+  
 }
 
 /////////////////////////////// FUNÇÕES ///////////////////////////////
@@ -275,6 +278,8 @@ void get_magnetic_readings()
     mag_x -= xOffset; // The calibration offsets are subtracted to get the calibrated values.
     mag_y -= yOffset;
     mag_z -= zOffset;
+
+    Serial.println(mag_z);
 
     if (DEBUG)
     {
