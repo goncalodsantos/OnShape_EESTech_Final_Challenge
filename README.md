@@ -15,4 +15,5 @@ The gripper starts closing initially with a base speed. When the gripper starts 
 
 ## Teorical links used:
 https://docs.simplefoc.com/position_control_example
+
 https://github.com/Infineon/hackathon/tree/master
