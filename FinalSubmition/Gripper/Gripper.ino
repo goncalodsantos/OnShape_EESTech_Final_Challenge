@@ -1,3 +1,4 @@
+
 /**
  * Torque control example of adaptive gripper. Based on SimpleFOC library.
  *
@@ -103,7 +104,7 @@ volatile unsigned long previousMillis_grip = 0;         //grip check time
 volatile int interval_grip = 30;                        //grip check interval
 
 /////////////////////////////// DEBUG ///////////////////////////////
-int DEBUG = 0;
+int DEBUG = 1;
 
 /////////////////////////////// Código Principal ///////////////////////////////
 void setup() {
@@ -228,13 +229,10 @@ void loop() {
   
   motor_loop();
 
-  if(DEBUG) 
-  {
-    Serial.println("");
-    Serial.println("------------------------------ END OF LOOP ------------------------");
-    Serial.println("");
-  }
-  
+
+  Serial.println("");
+  Serial.println("------------------------------ END OF LOOP ------------------------");
+  Serial.println("");
 }
 
 /////////////////////////////// FUNÇÕES ///////////////////////////////
@@ -278,8 +276,6 @@ void get_magnetic_readings()
     mag_x -= xOffset; // The calibration offsets are subtracted to get the calibrated values.
     mag_y -= yOffset;
     mag_z -= zOffset;
-
-    Serial.println(mag_z);
 
     if (DEBUG)
     {
